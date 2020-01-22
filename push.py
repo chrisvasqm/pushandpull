@@ -9,7 +9,7 @@ with open('people.csv', 'a', newline='') as file:
     isFileEmpty = os.stat('people.csv').st_size == 0
     if isFileEmpty:
         # In case the file is empty, type in the title of each column
-        writer.writerow(['First name', 'Last name', 'Salary'])
+        writer.writerow(['Record type', 'Bank account', 'Salary'])
 
     while True:
         # Ask the user if they want to add more data
@@ -20,17 +20,14 @@ with open('people.csv', 'a', newline='') as file:
 
         # Ask the employee's information
         if answer == '1':
-            print('Nombre de el/la profesor(a):')
-            firstname = input()
-
-            print('Apellido(s) de el/la profesor(a):')
-            lastname = input()
+            print('Numero de cuenta bancaria:')
+            bank_account = input()
 
             print('Salario mensual:')
             salary = int(input())
 
             # Inser the data into the CSV file
-            writer.writerow([firstname, lastname, salary])
+            writer.writerow(['D', bank_account, salary])
 
         # Stop the program when the user is done adding data to the file
         elif answer == '2':
